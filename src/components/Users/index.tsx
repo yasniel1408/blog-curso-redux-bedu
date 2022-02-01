@@ -1,13 +1,14 @@
 import { FC } from "react";
 import { IUser } from "./types/IUser";
 import useGetUsers from "./hooks/useGetUsers";
+import Spinner from "../Spinner";
 
 const Users: FC = () => {
   const { users, loading, error } = useGetUsers();
   return (
     <div className="margen">
       <p className="error-message">{error}</p>
-      <h1>{loading && "Loading..."}</h1>
+
       <table className="tabla">
         <thead>
           <tr>
@@ -17,6 +18,7 @@ const Users: FC = () => {
           </tr>
         </thead>
         <tbody>
+          <>{loading && <Spinner />}</>
           {users.map((user: IUser) => (
             <tr key={user.id}>
               <td>{user.name}</td>
