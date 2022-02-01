@@ -1,46 +1,19 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-interface IUser {
-  id: string;
-  name: string;
-  email: string;
-  website: string;
-}
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Menu from "./components/Menu";
+import Tasks from "./components/Tasks";
+import Users from "./components/Users";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const load = async () => {
-      let res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUsers(res.data);
-    };
-    load();
-  }, [setUsers]);
-
   return (
-    <div className="margen">
-      <table className="tabla">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Enlace</th>
-          </tr>
-        </thead>
-        <tbody>
-          {!!users.length &&
-            users.map((user: IUser) => (
-              <tr key={user.id}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.website}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <main id="margen">
+        <Routes>
+          <Route path="/" element={<Users />} />
+          <Route path="/tasks" element={<Tasks />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
