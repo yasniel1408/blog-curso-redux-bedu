@@ -1,16 +1,23 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  website: string;
+}
+
 function App() {
-  const ponerFilas = () => [
-    <tr>
-      <td>Rodolfo</td>
-      <td>Rodolfo@platzi.com</td>
-      <td>Rodolfo.com</td>
-    </tr>,
-    <tr>
-      <td>Rodolfo</td>
-      <td>Rodolfo@platzi.com</td>
-      <td>Rodolfo.com</td>
-    </tr>,
-  ];
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      let res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      setUsers(res.data);
+    };
+    load();
+  }, [setUsers]);
 
   return (
     <div className="margen">
@@ -22,7 +29,16 @@ function App() {
             <th>Enlace</th>
           </tr>
         </thead>
-        <tbody>{ponerFilas()}</tbody>
+        <tbody>
+          {!!users.length &&
+            users.map((user: IUser) => (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.website}</td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );
