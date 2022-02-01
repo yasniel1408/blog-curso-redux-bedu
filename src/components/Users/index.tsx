@@ -1,18 +1,9 @@
-import { FC, useEffect, useState } from "react";
-import axios from "axios";
+import { FC } from "react";
 import { IUser } from "./types/IUser";
+import useGetUsers from "./hooks/getUsers";
 
 const Users: FC = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const load = async () => {
-      let res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUsers(res.data);
-    };
-    load();
-  }, [setUsers]);
-
+  const { users } = useGetUsers();
   return (
     <div className="margen">
       <table className="tabla">
@@ -24,14 +15,13 @@ const Users: FC = () => {
           </tr>
         </thead>
         <tbody>
-          {!!users.length &&
-            users.map((user: IUser) => (
-              <tr key={user.id}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.website}</td>
-              </tr>
-            ))}
+          {users.map((user: IUser) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.website}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
