@@ -4,15 +4,15 @@ import { getAll } from "../../../redux/actions/userActions";
 
 const useGetUsers = () => {
   const dispatch = useDispatch();
-  const users = useSelector(
-    ({ userReducer }: { userReducer: any }) => userReducer.users
+  const { users, loading, error } = useSelector(
+    ({ userReducer }: { userReducer: any }) => userReducer
   );
 
   useEffect(() => {
     dispatch(getAll());
   }, [dispatch]);
 
-  return { users };
+  return { users, loading, error };
 };
 
 export default useGetUsers;

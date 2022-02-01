@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { IUser } from "./types/IUser";
-import useGetUsers from "./hooks/getUsers";
+import useGetUsers from "./hooks/useGetUsers";
 
 const Users: FC = () => {
-  const { users } = useGetUsers();
+  const { users, loading, error } = useGetUsers();
   return (
     <div className="margen">
+      <p className="error-message">{error}</p>
+      <h1>{loading && "Loading..."}</h1>
       <table className="tabla">
         <thead>
           <tr>
