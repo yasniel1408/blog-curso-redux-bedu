@@ -1,18 +1,20 @@
-import "./styles.css";
+import './styles.css';
 
 const Spinner = () => {
-  return (
-    <div className="lds-roller">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+    return (
+        <div className="container-lds">
+            <div className="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div></div>
+        </div>
+    );
 };
 
 export default Spinner;
