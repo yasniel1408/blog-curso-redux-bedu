@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { IUser } from "../../types/IUser";
+import { IUser } from "../../../../types/IUser";
 import "./styles.css";
 
 type AppProps = {
