@@ -5,10 +5,10 @@ import {
   SUCCESS_PUBLICATION,
 } from "../types/publicationTypes";
 
-export const getAll = () => async (dispatch: any) => {
+export const getAllPublications = () => async (dispatch: any) => {
   try {
     dispatch({ type: FETCH_PUBLICATION });
-    let res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    let res = await axios.get("https://jsonplaceholder.typicode.com/posts");
     dispatch({
       type: SUCCESS_PUBLICATION,
       payload: res.data,
