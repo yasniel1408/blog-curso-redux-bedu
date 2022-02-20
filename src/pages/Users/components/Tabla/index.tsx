@@ -9,13 +9,13 @@ type AppProps = {
 
 const Tabla: FC<AppProps> = ({ users }) => {
   const putRow = () =>
-    users.map(({ id, name, email, website }: IUser, index) => (
+    users.map(({ id, name, email, website }: IUser) => (
       <tr key={id}>
         <td>{name}</td>
         <td>{email}</td>
         <td>{website}</td>
         <td>
-          <Link to={`/publication/${index}`}>
+          <Link to={`/publication/${id}`}>
             <div className="eye-solid icon"></div>
           </Link>
         </td>

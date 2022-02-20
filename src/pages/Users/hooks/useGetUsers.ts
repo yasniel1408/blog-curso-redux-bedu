@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../../redux/actions/userActions";
+import { getAll } from "../../../redux/user/actions/userActions";
 
 const useGetUsers = () => {
   const dispatch = useDispatch();

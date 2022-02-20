@@ -12,7 +12,6 @@ const userReducer = (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         loading: true,
-        users: [],
         error: null,
       };
     case SUCCESS_USERS:

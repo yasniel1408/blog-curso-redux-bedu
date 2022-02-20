@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../../redux/actions/userActions";
+import { getAll } from "../../../redux/user/actions/userActions";
 import { IUser } from "../../../types/IUser";
 
 type AppProps = {
@@ -16,8 +16,11 @@ const useGetUser = ({ index }: AppProps) => {
 
   useEffect(() => {
     !users.length && dispatch(getAll());
+  }, [dispatch, users.length]);
+
+  useEffect(() => {
     setUser(users.find((user: IUser) => Number(user.id) === Number(index)));
-  }, [dispatch, index, users]);
+  }, [index, users]);
 
   return { user, loading, error };
 };
