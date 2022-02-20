@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../../redux/user/actions/userActions";
+import { getAllUsers } from "../../../redux/user/actions/userActions";
 import { IUser } from "../../../types/IUser";
 
 type AppProps = {
@@ -15,7 +15,7 @@ const useGetUser = ({ index }: AppProps) => {
   );
 
   useEffect(() => {
-    !users.length && dispatch(getAll());
+    !users.length && dispatch(getAllUsers());
   }, [dispatch, users.length]);
 
   useEffect(() => {
