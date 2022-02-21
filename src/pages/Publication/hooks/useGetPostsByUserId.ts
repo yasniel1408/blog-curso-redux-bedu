@@ -6,9 +6,9 @@ type AppProps = {
   userId?: string;
 };
 
-const useGetPosts = ({ userId }: AppProps) => {
+const useGetPostsByUserId = ({ userId }: AppProps) => {
   const dispatch = useDispatch();
-  const { publications, loading, error } = useSelector(
+  const { publicationsByUserId, loading, error } = useSelector(
     ({ publicationReducer }: { publicationReducer: any }) => publicationReducer
   );
 
@@ -16,7 +16,7 @@ const useGetPosts = ({ userId }: AppProps) => {
     userId && dispatch(getAllPublicationsByUserId({ userId }));
   }, [dispatch, userId]);
 
-  return { publications, loading, error };
+  return { publicationsByUserId, loading, error };
 };
 
-export default useGetPosts;
+export default useGetPostsByUserId;
