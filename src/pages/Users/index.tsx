@@ -8,8 +8,8 @@ const Users: FC = () => {
   return (
     <div className="margen">
       <Error error={error} />
-      <Tabla users={users} />
       <Loading loading={loading} />
+      <Tabla users={users} />
     </div>
   );
 };

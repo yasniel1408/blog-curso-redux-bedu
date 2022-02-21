@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IUser } from "../../../../types/IUser";
-import "./styles.css";
+import "./styles.scss";
 
 type AppProps = {
   users: [];
@@ -25,7 +25,7 @@ const Tabla: FC<AppProps> = ({ users }) => {
   return (
     <>
       <h1>Users:</h1>
-      <table className="tabla">
+      <table className="rwd-table">
         <thead>
           <tr>
             <th>Nombre</th>

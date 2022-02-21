@@ -13,7 +13,7 @@ const useGetPosts = ({ userId }: AppProps) => {
   );
 
   useEffect(() => {
-    dispatch(getAllPublicationsByUserId({ userId }));
+    userId && dispatch(getAllPublicationsByUserId({ userId }));
   }, [dispatch, userId]);
 
   return { publications, loading, error };

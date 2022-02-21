@@ -19,7 +19,7 @@ export const getAllPublications = () => async (dispatch: any) => {
 };
 
 export const getAllPublicationsByUserId =
-  ({ userId }: { userId?: string }) =>
+  ({ userId }: { userId: string }) =>
   async (dispatch: any) => {
     try {
       dispatch({ type: FETCH_PUBLICATION });

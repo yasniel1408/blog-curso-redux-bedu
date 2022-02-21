@@ -1,0 +1,23 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+  background: #eee;
+  margin: 0;
+}
+#margen {
+  margin: 100px;
+  margin-top: 50px;
+}
+
+#menu {
+  background-color: #253a46;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#menu a {
+  color: white;
+  padding-right: 50px;
+}

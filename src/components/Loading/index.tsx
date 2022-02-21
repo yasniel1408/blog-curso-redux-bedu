@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./styles.css";
+import "./styles.scss";
 
 type AppProps = {
   loading: boolean;
