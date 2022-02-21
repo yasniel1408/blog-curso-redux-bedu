@@ -6,13 +6,13 @@ import useGetPosts from "./hooks/useGetPosts";
 import useGetUser from "./hooks/useGetUser";
 
 export const Publication: FC = () => {
-  const { index } = useParams();
-  const { user, loading, error } = useGetUser({ index });
+  const { userId } = useParams();
+  const { user, loading, error } = useGetUser({ userId });
   const {
     publications,
     loading: loadingPosts,
     error: errorPosts,
-  } = useGetPosts({ index });
+  } = useGetPosts({ userId });
 
   return (
     <div>

@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Users />} />
           <Route path="/tasks" element={<Tasks />} />
-          <Route path="/publication/:index" element={<Publication />} />
+          <Route path="/publication/:userId" element={<Publication />} />
         </Routes>
       </main>
     </BrowserRouter>

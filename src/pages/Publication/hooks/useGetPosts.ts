@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPublications } from "../../../redux/publication/actions/publicationActions";
+import { getAllPublicationsByUserId } from "../../../redux/publication/actions/publicationActions";
 
 type AppProps = {
-  index?: string;
+  userId?: string;
 };
 
-const useGetPosts = ({ index }: AppProps) => {
+const useGetPosts = ({ userId }: AppProps) => {
   const dispatch = useDispatch();
   const { publications, loading, error } = useSelector(
     ({ publicationReducer }: { publicationReducer: any }) => publicationReducer
   );
 
   useEffect(() => {
-    dispatch(getAllPublications());
-  }, [dispatch]);
+    dispatch(getAllPublicationsByUserId({ userId }));
+  }, [dispatch, userId]);
 
   return { publications, loading, error };
 };
