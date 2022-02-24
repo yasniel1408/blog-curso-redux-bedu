@@ -22,7 +22,7 @@ export const Publication: FC = () => {
       <Loading loading={loading || loadingPosts} />
       <ul>
         {publicationsByUserId.map((value: any) => (
-          <PublicationItem {...value} />
+          <PublicationItem key={value.id} {...value} />
         ))}
       </ul>
     </div>
